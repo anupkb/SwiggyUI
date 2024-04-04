@@ -1,0 +1,58 @@
+.hero {
+    padding: 15px 148px;
+    background-color: #fafafa;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.restaurant-card {
+    /* width: 270px;
+    height: 245px; */
+    margin: 10px;
+    height: auto;
+    border: 1px dotted #696969;
+    border-radius: 10px;
+    box-shadow: rgba(17, 12, 46, 0.15) 0px 24px 48px 0px;
+}
+
+/* .restaurant-image {
+    width: 235px;
+    height: 180px;
+} */
+
+.restaurant-image img {
+    width: 270px;
+    height: 180px;
+    border-radius: 10px;
+}
+
+.restaurant-info {
+    padding: 10px;
+    color: #333;
+}
+
+.restaurant-info h3 {
+    margin: 0;
+    font-size: 16px;
+}
+
+.rating-time {
+    display: flex;
+    align-items: center;
+}
+
+.rating-time h4 {
+    margin: 0 10px 0 0;
+    font-size: 14px;
+    color: #888;
+}
+
+.rating-time p {
+    margin: 0;
+    font-size: 14px;
+}
+
+.star {
+    color: #f5a623;
+}
