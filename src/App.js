@@ -5,6 +5,7 @@ import Header from "./components/Header";
 import Body from "./components/Body";
 import Contact from "./components/Contact";
 import About from "./components/About";
+import Error from "./components/Error";
 
 const App = () => {
   return (
@@ -19,14 +20,17 @@ const appRouter = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    errorElement: <Error />,
   },
   {
     path: "/contact",
     element: <Contact />,
+    errorElement: <Error />,
   },
   {
     path: "/about",
     element: <About />,
+    errorElement: <Error />,
   },
 ]);
 
