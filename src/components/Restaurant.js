@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useRestaurantMenu } from "../../utils/useRestaurantMenu";
+import ShimmerEffect from "./Shimmer";
 
 const Restaurant = () => {
   const { resId } = useParams();
@@ -7,7 +8,11 @@ const Restaurant = () => {
   const { restaurantInfo, loading, error } = useRestaurantMenu(resId);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return (
+      <div>
+        <ShimmerEffect />
+      </div>
+    );
   }
 
   if (error) {

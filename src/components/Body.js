@@ -2,13 +2,18 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { CLOUDINARY_IMG_URL } from "../../utils/constants";
 import { useRestaurantData } from "../../utils/useRestaurantData";
+import ShimmerEffect from "./Shimmer";
 import "./css/body.css";
 
 const Body = () => {
   const { resCards, loading, error } = useRestaurantData();
 
   if (loading) {
-    return <div>Loading...</div>;
+    return (
+      <div>
+        <ShimmerEffect />
+      </div>
+    );
   }
 
   if (error) {
