@@ -1,36 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import { CLOUDINARY_IMG_URL, RES_DATA_API } from "../../utils/constants";
+import { CLOUDINARY_IMG_URL } from "../../utils/constants";
+import { useRestaurantData } from "../../utils/useRestaurantData";
 import "./css/body.css";
 
 const Body = () => {
-  const [restaurantCard, setRestaurantCard] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const { resCards, loading, error } = useRestaurantData();
 
-  useEffect(() => {
-    fetchData();
-  }, []);
-
-  const fetchData = async () => {
-    try {
-      const data = await fetch(RES_DATA_API);
-      const jsonData = await data.json();
-      const restaurantInfo =
-        jsonData?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
-          ?.restaurants;
-
-      setRestaurantCard(restaurantInfo);
-
-      setIsLoading(false);
-    } catch (error) {
-      setError("Error fetching data. Please try again later.");
-      setIsLoading(false);
-      console.error("Error fetching data:", error);
-    }
-  };
-
-  if (isLoading) {
+  if (loading) {
     return <div>Loading...</div>;
   }
 
@@ -40,7 +17,7 @@ const Body = () => {
 
   return (
     <div className="main">
-      {restaurantCard?.map((resCard) => (
+      {resCards?.map((resCard) => (
         <div className="restaurant-card" key={resCard?.info?.id}>
           <Link to={`/restaurant/${resCard?.info?.id}`}>
             <div className="card">
