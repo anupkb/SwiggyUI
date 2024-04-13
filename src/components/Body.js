@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { IMG_URL } from "../../utils/constants";
+import { Link } from "react-router-dom";
+import { CLOUDINARY_IMG_URL, RES_DATA_API } from "../../utils/constants";
 import "./css/body.css";
 
 const Body = () => {
@@ -13,16 +14,14 @@ const Body = () => {
 
   const fetchData = async () => {
     try {
-      const data = await fetch(
-        "https://www.swiggy.com/dapi/restaurants/list/v5?lat=20.2960587&lng=85.8245398&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-      );
+      const data = await fetch(RES_DATA_API);
       const jsonData = await data.json();
       const restaurantInfo =
         jsonData?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
           ?.restaurants;
 
       setRestaurantCard(restaurantInfo);
-      // console.log(restaurantCard);
+
       setIsLoading(false);
     } catch (error) {
       setError("Error fetching data. Please try again later.");
@@ -40,27 +39,29 @@ const Body = () => {
   }
 
   return (
-    <div className="hero">
+    <div className="main">
       {restaurantCard?.map((resCard) => (
         <div className="restaurant-card" key={resCard?.info?.id}>
-          <div className="card">
-            <div className="restaurant-image">
-              <img
-                src={`${IMG_URL}/${resCard?.info?.cloudinaryImageId}`}
-                alt=""
-              />
-            </div>
-            <div className="restaurant-info">
-              <h3>{resCard?.info?.name}</h3>
-              <div className="rating-time">
-                <h4>
-                  {resCard?.info?.avgRating} <span className="star">★ </span>
-                </h4>
-                <p>• {resCard?.info?.sla?.slaString}</p>
+          <Link to={`/restaurant/${resCard?.info?.id}`}>
+            <div className="card">
+              <div className="restaurant-image">
+                <img
+                  src={`${CLOUDINARY_IMG_URL}/${resCard?.info?.cloudinaryImageId}`}
+                  alt=""
+                />
               </div>
-              <p>{resCard?.info?.areaName}</p>
+              <div className="restaurant-info">
+                <h3>{resCard?.info?.name}</h3>
+                <div className="rating-time">
+                  <h4>
+                    {resCard?.info?.avgRating} <span className="star">★ </span>
+                  </h4>
+                  <p>• {resCard?.info?.sla?.slaString}</p>
+                </div>
+                <div className="location">{resCard?.info?.areaName}</div>
+              </div>
             </div>
-          </div>
+          </Link>
         </div>
       ))}
     </div>

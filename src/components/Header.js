@@ -1,31 +1,32 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { LOGO_IMG_URL } from "../../utils/constants";
 import "./css/header.css";
 
 const Header = () => {
   return (
     <header className="header">
       <div className="logo">
-        <img
-          src="https://logolook.net/wp-content/uploads/2023/04/Swiggy-Logo.png"
-          alt="Swiggy Logo"
-        />
+        <Link to="/">
+          <img src={LOGO_IMG_URL} alt="Swiggy Logo" />
+        </Link>
       </div>
       <nav className="nav-items">
         <ul>
           <li>
-            <a href="#home">Search</a>
+            <Link to="/search">Search</Link>
           </li>
           <li>
-            <a href="#about">Offers</a>
+            <Link to="/offers">Offers</Link>
           </li>
           <li>
-            <a href="#services">Help</a>
+            <Link to="/services">Services</Link>
           </li>
           <li>
-            <a href="#contact">Signin</a>
+            <Link to="/signin">Sign In</Link>
           </li>
           <li>
-            <a href="#login">Cart</a>
+            <Link to="/cart">Cart</Link>
           </li>
         </ul>
       </nav>

@@ -1,6 +1,7 @@
-.hero {
+.main {
     padding: 15px 148px;
-    background-color: #fafafa;
+    /* background-color: #fafafa;  */
+    /* background-color: rgb(255, 255, 255); */
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     display: flex;
     flex-wrap: wrap;
@@ -8,11 +9,15 @@
 }
 
 .restaurant-card {
-    margin: 10px;
+    margin: 15px 10px;
     width: 270px;
-    border: 1px dotted #696969;
+    /* border: 1px dotted #696969; */
     border-radius: 10px;
     box-shadow: rgba(17, 12, 46, 0.15) 0px 24px 48px 0px;
+}
+
+.restaurant-card a {
+    text-decoration: none;
 }
 
 .restaurant-image img {
@@ -41,7 +46,7 @@
 }
 
 .rating-time h4 {
-    margin: 0 10px 0 0;
+    margin: 0 20px 0 0;
     font-size: 14px;
     color: #888;
 }
@@ -49,8 +54,17 @@
 .rating-time p {
     margin: 0;
     font-size: 14px;
+    font-weight: 500;
+    color: #696969;
 }
 
 .star {
-    color: #f5a623;
+    color: green;
+    margin: 0px 5px;
+}
+
+.location {
+    margin: 10px 0px 7px 0px;
+    font-weight: 400;
+    color: #696969;
 }
