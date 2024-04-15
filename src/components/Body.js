@@ -3,11 +3,10 @@ import { Link } from "react-router-dom";
 import { CLOUDINARY_IMG_URL } from "../../utils/constants";
 import { useRestaurantData } from "../../utils/useRestaurantData";
 import ShimmerEffect from "./Shimmer";
-import "./css/body.css";
 
 const Body = () => {
   const { resCards, loading, error } = useRestaurantData();
-
+  console.log(resCards);
   if (loading) {
     return (
       <div>
@@ -21,26 +20,36 @@ const Body = () => {
   }
 
   return (
-    <div className="main">
+    <div className="p-6 flex flex-wrap justify-center">
       {resCards?.map((resCard) => (
-        <div className="restaurant-card" key={resCard?.info?.id}>
-          <Link to={`/restaurant/${resCard?.info?.id}`}>
-            <div className="card">
+        <div className="m-4 w-64 restaurant-card" key={resCard?.info?.id}>
+          <Link
+            to={`/restaurant/${resCard?.info?.id}?name=${encodeURIComponent(
+              resCard?.info?.name
+            )}`}
+          >
+            <div className="card shadow-md rounded-lg">
               <div className="restaurant-image">
                 <img
                   src={`${CLOUDINARY_IMG_URL}/${resCard?.info?.cloudinaryImageId}`}
                   alt=""
+                  className="w-full h-48 object-cover rounded-t-lg"
                 />
               </div>
-              <div className="restaurant-info">
-                <h3>{resCard?.info?.name}</h3>
-                <div className="rating-time">
-                  <h4>
-                    {resCard?.info?.avgRating} <span className="star">★ </span>
+              <div className="restaurant-info p-4">
+                <h3 className="text-xl font-semibold">{resCard?.info?.name}</h3>
+                <div className="rating-time flex items-center">
+                  <h4 className="text-gray-600">
+                    {resCard?.info?.avgRating}{" "}
+                    <span className="text-green-500">★</span>
                   </h4>
-                  <p>• {resCard?.info?.sla?.slaString}</p>
+                  <p className="text-gray-500 ml-2">
+                    • {resCard?.info?.sla?.slaString}
+                  </p>
                 </div>
-                <div className="location">{resCard?.info?.areaName}</div>
+                <div className="location text-gray-600">
+                  {resCard?.info?.areaName}
+                </div>
               </div>
             </div>
           </Link>

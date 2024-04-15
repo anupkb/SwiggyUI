@@ -1,10 +1,14 @@
 import React from "react";
-import "./css/shimmer.css";
 
 const ShimmerEffect = () => (
-  <div className="shimmer-grid">
+  <div className="grid grid-cols-4 gap-5 mx-auto my-10">
     {[...Array(12)].map((_, index) => (
-      <div className="shimmer-box" key={index}></div>
+      <div
+        className="relative overflow-hidden bg-gray-200 rounded-lg shimmer-box animate-shimmer"
+        key={index}
+      >
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-gray-200 to-transparent"></div>
+      </div>
     ))}
   </div>
 );
