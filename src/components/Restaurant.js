@@ -1,6 +1,6 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import { useRestaurantMenu } from "../../utils/useRestaurant";
+import { useRestaurantMenu } from "../utils/useRestaurant";
 import ShimmerEffect from "./Shimmer";
 import RestaurantMenu from "./RestaurantMenu";
 
@@ -35,8 +35,8 @@ const Restaurant = () => {
           <hr />
         </div>
 
-        {restaurantMenu.map((resMenu) => (
-          <RestaurantMenu data={resMenu.card.card} />
+        {restaurantMenu.map((resMenu, index) => (
+          <RestaurantMenu key={index} data={resMenu.card.card} />
         ))}
       </div>
       <div className="w-1/5"></div>

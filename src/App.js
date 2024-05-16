@@ -7,21 +7,25 @@ import Contact from "./components/Contact";
 import About from "./components/About";
 import Error from "./components/Error";
 import Restaurant from "./components/Restaurant";
-import { Search, Offers, Services, Signin, Cart } from "./components/Nav";
+import Cart from "./components/Cart";
+import { Search, Offers, Services, Signin } from "./components/Nav";
+import { Provider } from "react-redux";
+import appStore from "./utils/appStore";
 
 const navComponents = {
   Search,
   Offers,
   Services,
   Signin,
-  Cart,
 };
 
 const App = () => {
   return (
     <>
-      <Header />
-      <Outlet />
+      <Provider store={appStore}>
+        <Header />
+        <Outlet />
+      </Provider>
     </>
   );
 };
@@ -46,6 +50,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/restaurant/:resId",
         element: <Restaurant />,
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
       },
       ...Object.entries(navComponents).map(([key, Component]) => ({
         path: `/${key.toLowerCase()}`,

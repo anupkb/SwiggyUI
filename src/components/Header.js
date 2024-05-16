@@ -1,8 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { LOGO_IMG_URL } from "../../utils/constants";
+import { LOGO_IMG_URL } from "../utils/constants";
+import { useSelector } from "react-redux";
 
 const Header = () => {
+  const cartItems = useSelector((store) => store.cart.items);
+
   return (
     <header className="font-semibold py-2 px-4 flex justify-between items-center border-b border-gray-200 shadow-md">
       <div className="logo">
@@ -28,13 +31,13 @@ const Header = () => {
             </Link>
           </li>
           <li className="mr-8">
-            <Link to="/signin" className="text-gray-700 hover:underline">
-              Sign In
+            <Link to="/cart" className="text-gray-700 hover:underline">
+              Cart - {cartItems.length}
             </Link>
           </li>
-          <li>
-            <Link to="/cart" className="text-gray-700 hover:underline">
-              Cart
+          <li className="mr-8">
+            <Link to="/signin" className="text-gray-700 hover:underline">
+              Sign In
             </Link>
           </li>
         </ul>
