@@ -1,10 +1,10 @@
 {
-  "name": "swiggyui",
+  "name": "FeastFlow",
   "version": "1.0.0",
-  "description": "SwiggyUI using Reactjs",
+  "description": "FeastFlow: Ultimate Food Ordering Experience",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "parcel build",
     "start": "parcel index.html"
   },
   "repository": {
@@ -12,15 +12,13 @@
     "url": "git+https://github.com/anupkb/SwiggyUI.git"
   },
   "keywords": [
-    "Reactjs",
-    "SwiggyUI"
+    "react.js",
+    "axios",
+    "redux",
+    "tailwindcss"
   ],
   "author": "ANUP KB",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/anupkb/SwiggyUI/issues"
-  },
-  "homepage": "https://github.com/anupkb/SwiggyUI#readme",
   "devDependencies": {
     "buffer": "^6.0.3",
     "parcel": "^2.12.0",
