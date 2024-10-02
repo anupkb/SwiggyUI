@@ -16,7 +16,7 @@ const useHomeData = () => {
     setLoading(true);
     try {
       const response = await axios.get(RES_DATA_API);
-      console.log(response.data.data);
+      console.log("DATA : ", response.data.data);
 
       setRestaurants(
         response?.data?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
@@ -35,6 +35,8 @@ const useHomeData = () => {
     }
   };
 
+  console.log("RESTAURANTS: ", restaurants);
+  console.log("MENU: ", menu);
   return { restaurants, menu, loading, error };
 };
 

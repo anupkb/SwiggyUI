@@ -3,6 +3,29 @@
 @tailwind utilities;
 
 
+@keyframes shimmer {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+.animate-shimmer {
+    animation: shimmer 1.5s infinite linear;
+    background: linear-gradient(90deg,
+            rgba(255, 255, 255, 0) 0%,
+            rgba(255, 255, 255, 0.2) 50%,
+            rgba(255, 255, 255, 0) 100%);
+    background-size: 200% 100%;
+}
+
+.shimmer-box {
+    position: relative;
+    height: 200px;
+}
 
 .hide-scrollbar::-webkit-scrollbar {
     display: none;
