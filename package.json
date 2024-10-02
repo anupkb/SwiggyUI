@@ -2,9 +2,8 @@
   "name": "FeastFlow",
   "version": "1.0.0",
   "description": "FeastFlow: Ultimate Food Ordering Experience",
-  "main": "index.js",
   "scripts": {
-    "build": "parcel build",
+    "build": "parcel build index.html",
     "start": "parcel index.html"
   },
   "repository": {
